@@ -47,6 +47,7 @@ resource "keycloak_realm" "archlinux" {
   remember_me = true
   display_name = "Arch Linux"
 
+  registration_allowed = true
   reset_password_allowed = true
   verify_email = true
   login_with_email_allowed = true
@@ -100,7 +101,7 @@ resource "keycloak_oidc_identity_provider" "realm_identity_provider" {
   client_secret = data.external.vault_github.result.vault_github_oauth_app_client_secret
   token_url = ""
   default_scopes = ""
-  enabled = false
+  enabled = true
   trust_email = false
   store_token = false
   backchannel_supported = false
